@@ -1,0 +1,272 @@
+
+/* ==========================================
+   FUENTES
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   MODIFICACIÓN 1: FONDO TEMÁTICO DE RESTAURANTE
+   ========================================== */
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    background-color: #fff8f0;
+    background-image:
+        radial-gradient(circle at 12% 18%, rgba(255, 87, 34, 0.14) 0%, transparent 28%),
+        radial-gradient(circle at 88% 82%, rgba(220, 53, 69, 0.14) 0%, transparent 28%),
+        radial-gradient(circle at 50% 50%, rgba(255, 193, 7, 0.10) 0%, transparent 45%),
+        linear-gradient(135deg, #fff8f0 0%, #ffe8d6 100%);
+    background-attachment: fixed;
+    color: #3a2a1a;
+}
+
+/* ==========================================
+   MODIFICACIÓN 2: TARJETA Y BOTONES REDISEÑADOS
+   ========================================== */
+.contenedor {
+    max-width: 480px;
+    background: #fffdf9;
+    padding: 32px 28px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(120, 60, 20, 0.18);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.7s ease-out;
+}
+
+/* Franja tricolor superior (detalle de restaurante) */
+.contenedor::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #dc3545, #ff9800, #ffc107);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    text-align: center;
+    color: #c92a2a;
+    margin: 0 0 25px 0;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+}
+
+.seccion {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #e8d5c4;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #4a2c1a;
+}
+
+/* Etiquetas dentro de radios/checkboxes (no deben verse como bloque) */
+label.label-inline {
+    display: inline;
+    margin-bottom: 0;
+    font-weight: 400;
+    color: #3a2a1a;
+}
+
+select {
+    width: 100%;
+    padding: 11px;
+    border-radius: 8px;
+    border: 2px solid #f0dccb;
+    font-size: 15px;
+    font-family: inherit;
+    background: #fffdf9;
+    color: #3a2a1a;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus {
+    outline: none;
+    border-color: #ff9800;
+    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.15);
+}
+
+select, input[type="radio"], input[type="checkbox"] {
+    cursor: pointer;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    accent-color: #dc3545;
+    transform: scale(1.15);
+}
+
+.opciones-inline {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Botones con degradado, sombra y elevación al pasar el mouse */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.35);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(40, 167, 69, 0.45);
+    background: linear-gradient(135deg, #218838, #17a589);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ==========================================
+   MODIFICACIÓN 3: RECIBO ESTILO TICKET
+   ========================================== */
+#reciboRespuesta {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 6px;
+    display: none;
+    background: #fffdf5;
+    border: 2px dashed #ff9800;
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #4a2c1a;
+    position: relative;
+    animation: slideDown 0.4s ease-out;
+    box-shadow: inset 0 0 25px rgba(255, 152, 0, 0.06);
+}
+
+#reciboRespuesta strong {
+    color: #c92a2a;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   PANEL DE ADMINISTRACIÓN
+   ========================================== */
+.panel-admin {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #f0dccb;
+}
+
+.panel-admin h3 {
+    text-align: center;
+    color: #6b4226;
+    margin-bottom: 15px;
+}
+
+.btn-azul {
+    background: linear-gradient(135deg, #007bff, #0d8bf2) !important;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.35) !important;
+}
+.btn-azul:hover {
+    background: linear-gradient(135deg, #0056b3, #0b6fc9) !important;
+    box-shadow: 0 7px 18px rgba(0, 123, 255, 0.45) !important;
+}
+
+.btn-rojo {
+    background: linear-gradient(135deg, #dc3545, #e4606d) !important;
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.35) !important;
+}
+.btn-rojo:hover {
+    background: linear-gradient(135deg, #bd2130, #cf3a4a) !important;
+    box-shadow: 0 7px 18px rgba(220, 53, 69, 0.45) !important;
+}
+
+#tablaHistorial {
+    margin-top: 15px;
+    max-height: 280px;
+    overflow-y: auto;
+    font-size: 13px;
+    background: #fdf3e7;
+    border-radius: 8px;
+    padding: 12px;
+    display: none;
+}
+
+.item-pedido {
+    padding: 10px;
+    background: #fffdf9;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border-left: 4px solid #ff9800;
+    transition: transform 0.15s;
+}
+
+.item-pedido:hover {
+    transform: translateX(3px);
+}
+
+/* ==========================================
+   TOAST (notificación flotante)
+   ========================================== */
+#toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #28a745;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+#toast.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
